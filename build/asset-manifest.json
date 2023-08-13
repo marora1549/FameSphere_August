@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.50cf15b2.css",
+    "main.js": "/static/js/main.6b5fd2b0.js",
+    "static/js/787.b8c902cd.chunk.js": "/static/js/787.b8c902cd.chunk.js",
+    "static/media/famesphere_logo.png": "/static/media/famesphere_logo.877fa765b074a8892288.png",
+    "static/media/tick.jpg": "/static/media/tick.ed44c729c233471f1a71.jpg",
+    "index.html": "/index.html",
+    "main.50cf15b2.css.map": "/static/css/main.50cf15b2.css.map",
+    "main.6b5fd2b0.js.map": "/static/js/main.6b5fd2b0.js.map",
+    "787.b8c902cd.chunk.js.map": "/static/js/787.b8c902cd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.50cf15b2.css",
+    "static/js/main.6b5fd2b0.js"
+  ]
+}
