@@ -259,13 +259,11 @@ function PageTwo(props){
             onResolve={responseFacebook}
             scope="instagram_basic,pages_show_list,email,
             public_profile,instagram_manage_insights,read_insights,pages_read_engagement"
-            disabled={true}
-            isDisabled={true}
             onReject={(error) => {
               console.log(error);
             }}
           > 
-            <FacebookLoginButton disabled={true}/>
+            <FacebookLoginButton/>
           </LoginSocialFacebook>
           
           :""}
