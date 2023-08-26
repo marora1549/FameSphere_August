@@ -29,7 +29,8 @@ const PageFour = ({onButtonClick, emailId, followerCount, subscriberCount, city}
 
   const famesphereRegister = async () => {
     setLoading(true);
-    const response = axios.post('https://34.220.170.226:3001/signup', 
+    const baseUrl = 'https://44.238.46.147:3002/'; 
+    const response = axios.post(baseUrl + 'signup', 
     {
     userid: emailId,
     password: password,
@@ -37,8 +38,7 @@ const PageFour = ({onButtonClick, emailId, followerCount, subscriberCount, city}
     signkey: 'abcxyz',
     }).then(response => {
       console.log("signup response::" + response.data);
-      axios.post(
-        'https://34.220.170.226:3001/updateFollowerCount',
+      axios.post(baseUrl + 'updateFollowerCount',
         {
           igfollowers: followerCount,
           ytsubscribers: subscriberCount,
