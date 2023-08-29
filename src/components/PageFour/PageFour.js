@@ -29,8 +29,8 @@ const PageFour = ({onButtonClick, emailId, followerCount, subscriberCount, city}
 
   const famesphereRegister = async () => {
     setLoading(true);
-    const baseUrl = 'https://44.238.46.147:3002/'; 
-    const response = axios.post(baseUrl + 'signup', 
+    const baseUrl = 'https://onboarding.famesphere.tech/'; 
+    const response = axios.post(baseUrl + 'signup',
     {
     userid: emailId,
     password: password,
