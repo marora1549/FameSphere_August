@@ -216,9 +216,9 @@ function PageTwo(props){
               htmlFor="workspace-name"
               style={{textAlign: 'left'}}
             >
-              IG Followers Count: {followerCount}
+              Your current IG Followers Count : {followerCount}
               <br/>
-              {audienceCity ? `Audience Demography: ${audienceCity}` : ""}
+              {audienceCity ? `Your audience is majorly from ${audienceCity}` : ""}
               <br/>     
             </label>
             <div class="center">
