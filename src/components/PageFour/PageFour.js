@@ -3,12 +3,15 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Button from 'react-bootstrap/Button';
 import axios from "axios";
 import Spinner from 'react-bootstrap/Spinner';
+import PasswordStrengthBar from 'react-password-strength-bar';
 
-const PageFour = ({onButtonClick, emailId, followerCount, subscriberCount, city}) => {
+
+const PageFour = ({onButtonClick, emailId, followerCount, subscriberCount, city, handleAPIResponse}) => {
   const [password, setPassword] = useState("");
   const [inputError, setInputError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setLoading] = useState(false);
+  const [passwordScore, setPasswordScore] = useState(0);
 
   const handleInputChange = (event) => {
     setPassword(event.target.value);
@@ -22,8 +25,10 @@ const PageFour = ({onButtonClick, emailId, followerCount, subscriberCount, city}
     e.preventDefault();
     if(!password){
       setInputError("Password is required to proceed");
-    }else{
+    }else if(passwordScore > 1){
       famesphereRegister();
+    }else{
+      setInputError("Password is too weak to proceed");
     }
   }
 
@@ -50,14 +55,24 @@ const PageFour = ({onButtonClick, emailId, followerCount, subscriberCount, city}
           },
         }
       );
+      handleAPIResponse("success");
     }).catch( error => {
+      if (error.response) {
+        console.error('Server Error:', error.response.status);
+        handleAPIResponse(error.response.data.message);
+      } else if (error.request) {
+        handleAPIResponse("Network Error");
+        console.error('Network Error:', error.request);
+      } else {
+        handleAPIResponse("Unknown Error");
+        console.error('Error:', error.message);
+      }
       console.error(error);
     }).finally(() => {
       setLoading(false);
       onButtonClick("pagefive");
     });
     }
-
   return (
     <main
       className="pt5 black-80 center"
@@ -105,6 +120,8 @@ const PageFour = ({onButtonClick, emailId, followerCount, subscriberCount, city}
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </span>
             </div>
+            <PasswordStrengthBar password={password}               
+            onChangeScore={setPasswordScore}/>
             {inputError && <p style={{ color: 'red' }}>{inputError}</p>}
           </div>
           

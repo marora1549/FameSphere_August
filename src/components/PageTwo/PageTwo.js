@@ -218,7 +218,8 @@ function PageTwo(props){
             >
               IG Followers Count: {followerCount}
               <br/>
-              Audience Demography: {audienceCity}
+              {audienceCity ? `Audience Demography: ${audienceCity}` : ""}
+              <br/>     
             </label>
             <div class="center">
               <div class="btn btn1">

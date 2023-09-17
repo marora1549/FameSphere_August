@@ -18,8 +18,7 @@ function App() {
   const [password, setPassword] = useState(null);
   const [emailError, setEmailError] = useState(null);
   const [city, setCity] = useState(null);
-
-  const isSmallScreen = window.innerWidth <= 768;
+  const [APIResponse, setAPIResponse] = useState('');
 
   const nextPage = (page) => {
     setPage(page);
@@ -50,6 +49,11 @@ function App() {
 
   const handleEmailError = (emailError) => {
     setEmailError(emailError);
+  }
+
+  const handleAPIResponse = (response) => {
+    console.log("global API response set to: ", response);
+    setAPIResponse(response);
   }
 
   const nextPageNumber = (pageNumber) => {
@@ -106,8 +110,10 @@ function App() {
                               emailId={userInputEmail}  
                               followerCount={followerCount} 
                               subscriberCount={subscriberCount}
-                              city={city}/>,
-          pagefive: <PageFive name={name}/>
+                              city={city}
+                              handleAPIResponse={handleAPIResponse}/>,
+          pagefive: <PageFive name={name}
+                              response={APIResponse}/>
         }[page]
       }
       </div>
